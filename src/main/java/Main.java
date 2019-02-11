@@ -1,6 +1,7 @@
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import org.apache.log4j.BasicConfigurator;
 
 import io.helidon.webserver.Routing;
 import io.helidon.webserver.ServerConfiguration;
@@ -10,6 +11,7 @@ import io.helidon.webserver.json.JsonSupport;
 public class Main {
 
 	public static void main(String[] args) throws UnknownHostException {
+		BasicConfigurator.configure();
 		Sentiment.init();
 		ServerConfiguration configuration = ServerConfiguration.builder()
 				.port(8080).build();
